@@ -40,7 +40,20 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        // dd($data);
+
+        // Prima alternativa.
+        // Tramite il metodo fill, assegniamo tutti i valori al nuovo prodotto, automaticamente
+        $comics = new Comic();
+        // Prende ogni chiave dell'array associativo e ne assegna il valore all'istanza del prodotto
+        $comics->fill($data);
+        $comics->save();
+
+
+
+        return redirect()->route("comics.show", $comics->id);
     }
 
     /**

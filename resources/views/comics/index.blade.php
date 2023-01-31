@@ -43,7 +43,7 @@
           <td>{{ $comic['series'] }}</td>
           <td>{{ $comic['sale_date'] }}</td>
           <td>{{ $comic['type'] }}</td>
-          <td>{{ $comic['thumb'] }}</td>
+          <td><img src="{{ $comic['thumb'] }}" alt=""></td>
           {{--<td class="text-nowrap">
              La funzione route() crea l'url completo per arrivare su una pagina.
             Occore quindi passare il name delle rotta che vogliano.

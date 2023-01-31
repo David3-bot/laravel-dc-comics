@@ -29,21 +29,14 @@
 
     <div class="mb-3">
         <label class="form-label">Data Vendita</label>
-        <input type="date" step=".01" class="form-control" name="series">
+        <input type="date" step=".01" class="form-control" name="sale_date">
     </div>
     <div class="mb-3">
         <label class="form-label">Tipo</label>
         <input type="text" step=".01" class="form-control" name="type">
     </div>
 
-    <div class="mb-3">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="available" id="flexCheckDefault">
-        <label class="form-check-label" for="flexCheckDefault">
-          Disponibile
-        </label>
-      </div>
-    </div>
+
 
     <button class="btn btn-primary" type="submit">Salva prodotto</button>
   </form>
