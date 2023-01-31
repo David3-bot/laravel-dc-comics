@@ -12,14 +12,14 @@ class ComicController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
+    public function index()
+    {
 
         $comics = comic::all();
 
         return view("comics.index", [
             "comics" => $comics
         ]);
-
     }
 
     /**
@@ -40,12 +40,16 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        $data = $request->validate([
+            "title" => "required|min:10|max:255",
+            
+            "description" => "required|string|min:5|max:255",
+    
+            "series" => "required|min:1|max:255",
+            
+            "type" => "required|min:1|max:255",
+        ]);
 
-        // dd($data);
-
-        // Prima alternativa.
-        // Tramite il metodo fill, assegniamo tutti i valori al nuovo prodotto, automaticamente
         $comics = new Comic();
         // Prende ogni chiave dell'array associativo e ne assegna il valore all'istanza del prodotto
         $comics->fill($data);
@@ -64,10 +68,10 @@ class ComicController extends Controller
      */
     public function show($id)
     {
-    
+
         $comics = Comic::findOrFail($id);
-        
- 
+
+
         return view("comics.show", [
             "comics" => $comics
         ]);
@@ -81,7 +85,12 @@ class ComicController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comics = Comic::findOrFail($id);
+        
+        return view("comics.edit", [
+            "comics" => $comics
+            
+        ]);
     }
 
     /**
@@ -93,7 +102,15 @@ class ComicController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $comics = Comic::findOrFail($id);
+
+        $comics->update($data);
+
+        $comics->save();
+
+        return redirect()->route("comics.show", $comics->id);
     }
 
     /**
