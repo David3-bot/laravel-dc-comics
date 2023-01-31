@@ -64,7 +64,13 @@ class ComicController extends Controller
      */
     public function show($id)
     {
-        //
+    
+        $comics = Comic::findOrFail($id);
+        
+ 
+        return view("comics.show", [
+            "comics" => $comics
+        ]);
     }
 
     /**
@@ -98,6 +104,12 @@ class ComicController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comics = Comic::findOrFail($id);
+
+        // sull'istanza del model, il metodo da usare è delete()
+        $comics->delete();
+
+        // Un volta eliminato l'elemento dalla tabella, dobbiamo reindirizzare l'utente da qualche parte.
+        return redirect()->route("comics.index");
     }
 }

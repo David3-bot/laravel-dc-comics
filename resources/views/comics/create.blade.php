@@ -16,7 +16,7 @@
     </div>
     <div class="mb-3">
         <label class="form-label">Copertina</label>
-        <input type="text" step=".01" class="form-control" name="thumb">
+        <input type="text" class="form-control" name="thumb">
     </div>
     <div class="mb-3">
       <label class="form-label">Prezzo</label>
@@ -24,7 +24,7 @@
     </div>
     <div class="mb-3">
         <label class="form-label">Serie</label>
-        <input type="text" step=".01" class="form-control" name="series">
+        <input type="text" class="form-control" name="series">
       </div>
 
     <div class="mb-3">
@@ -33,7 +33,7 @@
     </div>
     <div class="mb-3">
         <label class="form-label">Tipo</label>
-        <input type="text" step=".01" class="form-control" name="type">
+        <input type="text" class="form-control" name="type">
     </div>
 
 
